@@ -32,6 +32,8 @@ One concrete outcome of this process is hopefully that Deuce matures into a work
 
 [Hierarchical Temporal Memory - including HTM Cortical Learning Algorithms (Version 0.2.1)](https://www.numenta.com/htm-overview/education/HTM_CorticalLearningAlgorithms.pdf) Jeff Hawkins, et al, 2011
 
+[Pattern Recognition by Hierarchical Temporal Memory](http://bias.csr.unibo.it/maltoni/HTM_TR_v1.0.pdf) Davide Maltoni, 2011
+
 [pyHTM - Hierarchical Temporal Memory in Python](https://github.com/carver/pyHTM) Jason Carver, 2010-2011 (Based on version 0.2)
 
 [Metafor: Visualising Stories as Code](http://web.media.mit.edu/~hugo/publications/drafts/IUI2005-metafor.4.pdf) Hugo Liu and Henery Lieberman, 2005
