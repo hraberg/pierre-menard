@@ -1,0 +1,2 @@
+(ns pierre-menard.core)
+
