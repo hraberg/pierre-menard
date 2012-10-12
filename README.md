@@ -36,6 +36,10 @@ One concrete outcome of this process is hopefully that Deuce matures into a work
 
 [pyHTM - Hierarchical Temporal Memory in Python](https://github.com/carver/pyHTM) Jason Carver, 2010-2011 (Based on version 0.2)
 
+[The Brain Is the Screen: Deleuze and the Philosophy of Cinema](http://www.upress.umn.edu/book-division/books/the-brain-is-the-screen) Gregory Flaxman (ed.), 2000
+
+[Philosophy and Simulation: The Emergence of Synthetic Reason](http://computationalculture.net/review/the-plane-of-obscurity-%E2%80%94-simulation-and-philosophy) Manuel De Landa, 2011
+
 [Metafor: Visualising Stories as Code](http://web.media.mit.edu/~hugo/publications/drafts/IUI2005-metafor.4.pdf) Hugo Liu and Henery Lieberman, 2005
 
 [Natural Language, Semantic Analysis and Interactive Fiction](http://inform7.com/learn/documents/WhitePaper.pdf) Graham Nelson, 2005, revised 2006
@@ -43,8 +47,6 @@ One concrete outcome of this process is hopefully that Deuce matures into a work
 [Approaches to Automatic Programming](http://www.merl.com/papers/docs/TR92-04.pdf) Charles Rich and Richard C. Waters, 1992
 
 [STEPS Toward Espressive Programming Systems](http://www.vpri.org/pdf/tr2011004_steps11.pdf) Viewpoints Research Institute, 2011
-
-[Philosophy and Simulation: The Emergence of Synthetic Reason](http://computationalculture.net/review/the-plane-of-obscurity-%E2%80%94-simulation-and-philosophy) Manuel De Landa, 2011
 
 [Pierre Menard, Author of the Quixote](http://vahidnab.com/menard.pdf) Jorge Luis Borges, 1939
 
