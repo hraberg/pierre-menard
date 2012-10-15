@@ -36,6 +36,8 @@ One concrete outcome of this process is hopefully that Deuce matures into a work
 
 [pyHTM - Hierarchical Temporal Memory in Python](https://github.com/carver/pyHTM) Jason Carver, 2010-2011 (Based on version 0.2)
 
+[The HTM Camera Toolkit](https://github.com/binarybarry/HTM-Camera-Toolkit) Barry Maturkanich, 2011-12
+
 [The Brain Is the Screen: Deleuze and the Philosophy of Cinema](http://www.upress.umn.edu/book-division/books/the-brain-is-the-screen) Gregory Flaxman (ed.), 2000
 
 [Philosophy and Simulation: The Emergence of Synthetic Reason](http://computationalculture.net/review/the-plane-of-obscurity-%E2%80%94-simulation-and-philosophy) Manuel De Landa, 2011
