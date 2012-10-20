@@ -1,42 +1,44 @@
 # Pierre Menard
 
-*Things became duplicated in Tlön; they also tend to become effaced and lose their details when they are forgotten. A classic example is the doorway which survived so long it was visited by a beggar and disappeared at his death. At times some birds, a horse, have saved the ruins of an amphitheater.*
-  -- "Tlön, Uqbar, Orbis Tertius", Jorge Luis Borges
-
 *There is no exercise of the intellect which is not, in the final analysis, useless.*
   -- "Pierre Menard, Author of the Quixote", Jorge Luis Borges
 
-Pierre Menard is an attempt to implement Hierarchical Temporal Memory Cortical Learning Algorithms, as described in the [Numenta](http://www.numenta.com/) [whitepaper](https://www.numenta.com/htm-overview/education/HTM_CorticalLearningAlgorithms.pdf) (Version 0.2.1, September 12, 2011) in Clojure.
 
-If it ever works, it may be used together with [Mímir](https://github.com/hraberg/mimir) and/or [Sleipnir](https://github.com/hraberg/sleipnir).
+Pierre Menard started as an attempt to implement Hierarchical Temporal Memory Cortical Learning Algorithms, as described in the [Numenta](http://www.numenta.com/) [whitepaper](https://www.numenta.com/htm-overview/education/HTM_CorticalLearningAlgorithms.pdf) (Version 0.2.1, September 12, 2011) in Clojure after seeing Jeff Hawkins speak at [Strange Loop 2012](http://www.infoq.com/presentations/Brain-Computing).
 
-### The Quixote
+Now, this isn't what Pierre Menard is. Instead I've been spending a few weeks reading up on the background around various "cognitive" systems. To be frank, I was treading water a bit - I was bouncing back and forth between paper after paper in Answer Set Programming, Functional Logic Programming, Co-Inductive Logic Programming, and started slowly feel that I was missing the big picture.
 
-All my projects are meant to eventually fit together, not necessarily as libraries, in their concrete digital form, but as explorations:
+So I needed some new inspiration, and Jeff Hawkins' keynote did set me down this road, which initially was pretty humble, just trying to understand the pseudo code in the Numenta whitepaper, but I realized I needed a better, both technical and critical, understanding of the different pieces here.
 
-* Deuce: Emacs based editor foundation.
-* Lodjur: SWT Browser based frontend for Deuce.
-* Shen.java: a minimal JVM Lisp.
-* Mímir: declarative functional logic programming and production system.
-* Sleipnir: GPU acceleration for Mímir, potentially also a Shen.java/KLambda backend.
-* Pierre Menard: predictive analysis and machine learning to augment Mímir and Deuce.
+There are many interesting papers and thoughts out there, but they take time to analyze and consolidate into a working model of software. One key is to program and compose emergent behavior - I don't know exactly how to describe what I mean here, but we'll know it when we see it. Another key is to get the computer to help us on the way - to explain what its doing and why, and suggest alternatives. These two aren't necessarily dependent on each other. A third key is potentially continental philosophy - this is not so much to provide answers, but to help detect shortcuts - both to take and avoid.
 
-The end goal is a new form of programming environment which proactively helps you. I'm inspired by, among other things, Metafor, Inform 7, Subtext - mostly in attitude - Jonathan Edwards showed that striving for something different wasn't futile, The Programmer's Apprentice and the work at Viewpoints Research Institute. I'm less directly inspired - but still influenced and encouraged by, the current trends of renewed IDE interest after Inventing on Principle and Light Table.
+And I'm finally starting to see overlap between the references in De Landa "Philosophy and Simulation" (2011) and papers I currently read, but arrived to at from a different angle. There's a pattern here somewhere, and, to paraphrase Jeff: "I have a feeling its going to be important". Potentially what is needed is a book describing the ideas and findings - again, taking cue from Jeff - "On Intelligence" (2004) is a book that calls for of action, not one that has all the answers.
 
-But my view is that a better editor for our current family of programming languages, and that focusing too much on language design or reactive, tactile, editors misses the big picture. I want to get away from this very notion of "programming languages".
+Pierre Menard is a scratch pad, its nothing really, and it is where it eventually will happen. It's not a new rule engine, language or an IDE, its a creation of a concept, similar to what was and is, but also, what is yet to be.
 
-One concrete outcome of this process is hopefully that Deuce matures into a working Emacs clone in 2013. Deuce serves a two-fold purpose: 1) to learn about what still can be considered state-of-the-art when it comes to developer productivity, and 2) actually provide an alternative road ahead for Emacs under Clojure. These are conservative (not in scope) goals, but seem worth pursuing short term.
+And "what about Deuce?" - I will keep working on Deuce, it is a totally different form of programming, it needs a different type of problem solving, more engineering and heavy lifting, and less theoretical thinking. I plan to work on both Pierre Menard and Deuce for at least 2013.
+
 
 
 ## References
 
 [Hierarchical Temporal Memory - including HTM Cortical Learning Algorithms (Version 0.2.1)](https://www.numenta.com/htm-overview/education/HTM_CorticalLearningAlgorithms.pdf) Jeff Hawkins, et al, 2011
 
-[Pattern Recognition by Hierarchical Temporal Memory](http://bias.csr.unibo.it/maltoni/HTM_TR_v1.0.pdf) Davide Maltoni, 2011
+[Hyperdimensional Computing: An Introduction to Computing in Distributed Representation with High-Dimensional Random Vectors](http://redwood.berkeley.edu/pkanerva/papers/kanerva09-hyperdimensional.pdf) Pentti Kanerva, 2009
 
-[pyHTM - Hierarchical Temporal Memory in Python](https://github.com/carver/pyHTM) Jason Carver, 2010-2011 (Based on version 0.2)
+[Sparse Distributed Memory: Principles and Operation](ftp://reports.stanford.edu/pub/cstr/reports/csl/tr/89/400/CSL-TR-89-400.pdf) Pentti Kanerva et al, 1989
 
-[The HTM Camera Toolkit](https://github.com/binarybarry/HTM-Camera-Toolkit) Barry Maturkanich, 2011-12
+[What Might Categories do for AI and Cognitive Science?](http://www.j-paine.org/why_be_interested_in_categories.html) Jocelyn Ireson-Paine, 2009
+
+[Quantum Computation via Sparse Distributed Representation](http://www.neuroquantology.com/index.php/journal/article/download/507/504) Gerald Rinkus, 2012
+
+[The Copycat Project: A Model of Mental Fluidity and Analogy-making](http://cognitrn.psych.indiana.edu/rgoldsto/courses/concepts/copycat.pdf) Douglas Hofstader and Melanie Mitchell, 1995
+
+[FAE: The Fluid Analogies Engine. A Dynamic, Hybrid Model of Perception and Mental Deliberation](http://itee.uq.edu.au/~scottb/thesis.pdf) Scott William Bolland, 2005
+
+[The Self-Organizing Map](http://www.eicstes.org/EICSTES_PDF/PAPERS/The%20Self-Organizing%20Map%20\(Kohonen).pdf) Teuvo Kohonen, 1990
+
+[Beyond Containing: Associative Storage and Memory](http://theputnamprogram.wordpress.com/2012/02/14/associative-storage-and-memory/) The "Putnam Program", 2012 - This is an interesting blog, has loads of pretty dense stuff on the future of computing, AI, Machine Learning, Architecture and Philosophy - including continental stuff like Deleuze and Foucault.
 
 [The Brain Is the Screen: Deleuze and the Philosophy of Cinema](http://www.upress.umn.edu/book-division/books/the-brain-is-the-screen) Gregory Flaxman (ed.), 2000
 
