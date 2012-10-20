@@ -10,7 +10,7 @@ Now, this isn't what Pierre Menard is. Instead I've been spending a few weeks re
 
 So I needed some new inspiration, and Jeff Hawkins' keynote did set me down this road, which initially was pretty humble, just trying to understand the pseudo code in the Numenta whitepaper, but I realized I needed a better, both technical and critical, understanding of the different pieces here.
 
-There are many interesting papers and thoughts out there, but they take time to analyze and consolidate into a working model of software. One key is to program and compose emergent behavior - I don't know exactly how to describe what I mean here, but we'll know it when we see it. Another key is to get the computer to help us on the way - to explain what its doing and why, and suggest alternatives. These two aren't necessarily dependent on each other. A third key is potentially continental philosophy - this is not so much to provide answers, but to help detect shortcuts - both to take and avoid.
+There are many interesting papers and thoughts out there, but they take time to analyze and consolidate into a working model of software. One key is to program and compose emergent behavior - I don't know exactly how to describe what I mean here, but we'll know it when we see it. Another key is to get the computer to help us on the way - to explain what its doing and why, and suggest alternatives. These two aren't necessarily dependent on each other. A third key is potentially continental philosophy - this is not so much to provide answers, but to help detect shortcuts - both to take and avoid. As a side note - many papers talk about AI - while I still think "programming", and I'm not sure if that's because I have a too broad or optimistic view of what programming is or can be, a misappropriation of AI and machine learning (this is very likely), or if it can be attributed to arbritrary delinations between the different kinds of "computing". I'm mainly interested in efficiently make the computer do what I want, and most of the work, instead of the other way around.
 
 And I'm finally starting to see overlap between the references in De Landa "Philosophy and Simulation" (2011) and papers I currently read, but arrived to at from a different angle. There's a pattern here somewhere, and, to paraphrase Jeff: "I have a feeling its going to be important". Potentially what is needed is a book describing the ideas and findings - again, taking cue from Jeff - "On Intelligence" (2004) is a book that calls for of action, not one that has all the answers.
 
@@ -28,9 +28,11 @@ And "what about Deuce?" - I will keep working on Deuce, it is a totally differen
 
 [Sparse Distributed Memory: Principles and Operation](ftp://reports.stanford.edu/pub/cstr/reports/csl/tr/89/400/CSL-TR-89-400.pdf) Pentti Kanerva et al, 1989
 
+[Integer Sparse Distributed Memory and Modular Composite Representation](http://ccrg.cs.memphis.edu/assets/papers/theses-dissertations/Snaider_dissertation.pdf) Javier Snaider, 2012
+
 [What Might Categories do for AI and Cognitive Science?](http://www.j-paine.org/why_be_interested_in_categories.html) Jocelyn Ireson-Paine, 2009
 
-[Quantum Computation via Sparse Distributed Representation](http://www.neuroquantology.com/index.php/journal/article/download/507/504) Gerald Rinkus, 2012
+[Quantum Computation via Sparse Distributed Representation](http://www.neuroquantology.com/index.php/journal/article/download/507/504) Gerald Rinkus, 2012 "SDR, which entails no new, esoteric technology, is the key to achieving quantum computation in a single-processor, classical (Von Neumann) computer." - this sounds like hyperbole, but I know too little about this field, and such statements obviously at the same time peaks my interest.
 
 [The Copycat Project: A Model of Mental Fluidity and Analogy-making](http://cognitrn.psych.indiana.edu/rgoldsto/courses/concepts/copycat.pdf) Douglas Hofstader and Melanie Mitchell, 1995
 
@@ -51,6 +53,8 @@ And "what about Deuce?" - I will keep working on Deuce, it is a totally differen
 [Approaches to Automatic Programming](http://www.merl.com/papers/docs/TR92-04.pdf) Charles Rich and Richard C. Waters, 1992
 
 [STEPS Toward Espressive Programming Systems](http://www.vpri.org/pdf/tr2011004_steps11.pdf) Viewpoints Research Institute, 2011
+
+[Elephant 2000: A Programming Language Based on Speech Acts](http://www-formal.stanford.edu/jmc/elephant/elephant.html) John McCarthy, 1998 - I've read this paper a few times over the years, and have mixed feelings, but still keep coming back.
 
 [Pierre Menard, Author of the Quixote](http://vahidnab.com/menard.pdf) Jorge Luis Borges, 1939
 
