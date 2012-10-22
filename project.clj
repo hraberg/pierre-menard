@@ -3,7 +3,7 @@
   :url "https://github.com/hraberg/menard"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.5.0-alpha6"]
+  :dependencies [[org.clojure/clojure "1.5.0-alpha3"]
                  [colt "1.2.0"]]
   :plugins [[lein-swank "1.4.4"]
             [lein-difftest "1.3.8"]]
