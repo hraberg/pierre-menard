@@ -34,6 +34,8 @@ And "what about Deuce?" - I will keep working on Deuce, it is a totally differen
 
 [What Might Categories do for AI and Cognitive Science?](http://www.j-paine.org/why_be_interested_in_categories.html) Jocelyn Ireson-Paine, 2009
 
+[How Minds Work: Tutorial](http://ccrg.cs.memphis.edu/tutorial/tutorial.html) Stan Franklin, 2008 - "How Minds Work is intended to give a detailed picture of several mechanisms of mind combined to produce a conceptual model of cognition in the context of a human-like software agent".
+
 [Quantum Computation via Sparse Distributed Representation](http://www.neuroquantology.com/index.php/journal/article/download/507/504) Gerald Rinkus, 2012 "SDR, which entails no new, esoteric technology, is the key to achieving quantum computation in a single-processor, classical (Von Neumann) computer." - this sounds like hyperbole, but I know too little about this field, and such statements obviously at the same time peaks my interest.
 
 [Neural Cognitive Modelling:  A Biologically Constrained Spiking Neuron Model of the Tower of Hanoi Task](http://ctnsrv.uwaterloo.ca/cnrglab/sites/ctnsrv.uwaterloo.ca.cnrglab/files/papers/Stewart.Hanoi_.pdf) Terrence C. Stewart and Chris Eliasmith, 2011
