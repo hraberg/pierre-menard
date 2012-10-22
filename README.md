@@ -14,7 +14,7 @@ There are many interesting papers and thoughts out there, but they take time to 
 
 And I'm finally starting to see overlap between the references in De Landa "Philosophy and Simulation" (2011) and papers I currently read, but arrived to at from a different angle. There's a pattern here somewhere, and, to paraphrase Jeff: "I have a feeling its going to be important". Potentially what is needed is a book describing the ideas and findings - again, taking cue from Jeff - "On Intelligence" (2004) is a book that calls for of action, not one that has all the answers.
 
-Pierre Menard is a scratch pad, its nothing really, and it is where it eventually will happen. It's not a new rule engine, language or an IDE, its a creation of a concept, similar to what was and is, but also, what is yet to be.
+Pierre Menard is a scratch pad, its nothing really, and it is where it eventually will happen. It's not a new rule engine, language or an IDE, its a creation of a concept, similar to what was and is, but also, what is yet to be. More concretely, I aim to explore an intersection of ideas around sparse distributed representation, hyper-dimensional computing, fluid analogies, quantum neural networks, cortical learning, production systems and functional logic programming applied to human style problem solving.
 
 And "what about Deuce?" - I will keep working on Deuce, it is a totally different form of programming, it needs a different type of problem solving, more engineering and heavy lifting, and less theoretical thinking. I plan to work on both Pierre Menard and Deuce for at least 2013.
 
@@ -33,6 +33,8 @@ And "what about Deuce?" - I will keep working on Deuce, it is a totally differen
 [What Might Categories do for AI and Cognitive Science?](http://www.j-paine.org/why_be_interested_in_categories.html) Jocelyn Ireson-Paine, 2009
 
 [Quantum Computation via Sparse Distributed Representation](http://www.neuroquantology.com/index.php/journal/article/download/507/504) Gerald Rinkus, 2012 "SDR, which entails no new, esoteric technology, is the key to achieving quantum computation in a single-processor, classical (Von Neumann) computer." - this sounds like hyperbole, but I know too little about this field, and such statements obviously at the same time peaks my interest.
+
+[Neural Cognitive Modelling:  A Biologically Constrained Spiking Neuron Model of the Tower of Hanoi Task](http://ctnsrv.uwaterloo.ca/cnrglab/sites/ctnsrv.uwaterloo.ca.cnrglab/files/papers/Stewart.Hanoi_.pdf) Terrence C. Stewart and Chris Eliasmith, 2011
 
 [The Copycat Project: A Model of Mental Fluidity and Analogy-making](http://cognitrn.psych.indiana.edu/rgoldsto/courses/concepts/copycat.pdf) Douglas Hofstader and Melanie Mitchell, 1995
 
