@@ -30,6 +30,8 @@ And "what about Deuce?" - I will keep working on Deuce, it is a totally differen
 
 [Integer Sparse Distributed Memory and Modular Composite Representation](http://ccrg.cs.memphis.edu/assets/papers/theses-dissertations/Snaider_dissertation.pdf) Javier Snaider, 2012
 
+[Comparison Between Kanerva's SDM and Hopfield-Type Neural Networks](http://www.google.co.uk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&ved=0CCYQFjAB&url=http%3A%2F%2Fcsjarchive.cogsci.rpi.edu%2F1988v12%2Fi03%2Fp0299p0329%2Fmain.pdf&ei=TymFUJncLKW80QWDzICIBA&usg=AFQjCNH8UomRBwA1XWYwT0OpmkK42lsWlQ) James Keeler, 1988
+
 [What Might Categories do for AI and Cognitive Science?](http://www.j-paine.org/why_be_interested_in_categories.html) Jocelyn Ireson-Paine, 2009
 
 [Quantum Computation via Sparse Distributed Representation](http://www.neuroquantology.com/index.php/journal/article/download/507/504) Gerald Rinkus, 2012 "SDR, which entails no new, esoteric technology, is the key to achieving quantum computation in a single-processor, classical (Von Neumann) computer." - this sounds like hyperbole, but I know too little about this field, and such statements obviously at the same time peaks my interest.
@@ -39,6 +41,8 @@ And "what about Deuce?" - I will keep working on Deuce, it is a totally differen
 [The Copycat Project: A Model of Mental Fluidity and Analogy-making](http://cognitrn.psych.indiana.edu/rgoldsto/courses/concepts/copycat.pdf) Douglas Hofstader and Melanie Mitchell, 1995
 
 [FAE: The Fluid Analogies Engine. A Dynamic, Hybrid Model of Perception and Mental Deliberation](http://itee.uq.edu.au/~scottb/thesis.pdf) Scott William Bolland, 2005
+
+[The emergence of choice: Decision-making and strategic thinking through analogies](http://cogprints.org/6615/2/Capyblanca_cogprints.pdf) Alexandre Linhares, 2009
 
 [The Self-Organizing Map](http://www.eicstes.org/EICSTES_PDF/PAPERS/The%20Self-Organizing%20Map%20\(Kohonen).pdf) Teuvo Kohonen, 1990
 
