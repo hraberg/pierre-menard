@@ -50,6 +50,10 @@ And "what about Deuce?" - I will keep working on Deuce, it is a totally differen
 
 [Beyond Containing: Associative Storage and Memory](http://theputnamprogram.wordpress.com/2012/02/14/associative-storage-and-memory/) The "Putnam Program", 2012 - This is an interesting blog, has loads of pretty dense stuff on the future of computing, AI, Machine Learning, Architecture and Philosophy - including continental stuff like Deleuze and Foucault.
 
+[Mindstorms](http://www.papert.org/articles/GearsOfMyChildhood.html) Seymour Papert, 1980 - link is for "The Gears of My Childhood", the foreword of Mindstorms.
+
+[Computer Power and Human Reason: From Judgment To Calculation](http://en.wikipedia.org/wiki/Computer_Power_and_Human_Reason) Joseph Weizenbaum, 1976
+
 [The Brain Is the Screen: Deleuze and the Philosophy of Cinema](http://www.upress.umn.edu/book-division/books/the-brain-is-the-screen) Gregory Flaxman (ed.), 2000
 
 [Philosophy and Simulation: The Emergence of Synthetic Reason](http://computationalculture.net/review/the-plane-of-obscurity-%E2%80%94-simulation-and-philosophy) Manuel De Landa, 2011
