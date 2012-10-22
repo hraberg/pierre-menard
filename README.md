@@ -54,6 +54,8 @@ And "what about Deuce?" - I will keep working on Deuce, it is a totally differen
 
 [Computer Power and Human Reason: From Judgment To Calculation](http://en.wikipedia.org/wiki/Computer_Power_and_Human_Reason) Joseph Weizenbaum, 1976
 
+[What Is Philosophy?](http://plato.stanford.edu/entries/deleuze/#Wha) Gilles Deleuze and Felix Guattari 1994
+
 [The Brain Is the Screen: Deleuze and the Philosophy of Cinema](http://www.upress.umn.edu/book-division/books/the-brain-is-the-screen) Gregory Flaxman (ed.), 2000
 
 [Philosophy and Simulation: The Emergence of Synthetic Reason](http://computationalculture.net/review/the-plane-of-obscurity-%E2%80%94-simulation-and-philosophy) Manuel De Landa, 2011
