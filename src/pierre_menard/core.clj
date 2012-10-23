@@ -1,5 +1,7 @@
 (ns pierre-menard.core
-  (:require [clojure.walk :as w]))
+  (:require [clojure.walk :as w]
+            [clojure.string :as s])
+  (:import [clojure.lang Seqable ILookup IFn]))
 
 ;; This implements most of (paraphrased):
 ;; What We Mean When We Say “What’s the Dollar of Mexico?”: Prototypes and Mapping in Concept Space
@@ -16,6 +18,22 @@
 ;; This should be an auto assocative memory like SDR
 (def cleanup-memory (atom #{}))
 
+(defn binary [x] (apply str x))
+(declare unbind)
+
+(deftype hv [vector name]
+  Seqable
+  (seq [this] (seq vector))
+  IFn
+  (invoke [this key] (unbind this key))
+  ILookup
+  (valAt [this key] (unbind vector key))
+  (valAt [this key not-found] (or (unbind vector key) not-found))
+  Object
+  (toString [this] (str name ": " (binary (take 20 vector))  " ... " (binary (take-last 20 vector))))
+  (equals [this o] (= vector (.vector o)))
+  (hashCode [this] (.hashCode vector)))
+
 (defn hypervector []
   (loop [x (vec (repeat *dimensions* 0))
          ones (int (* *dimensions* *density*))]
@@ -26,13 +44,12 @@
           (recur (assoc x r 1) (dec ones))
           (recur x ones))))))
 
-(defn binary [x] (apply str x))
-
 (defn hamming-distance [x y]
   (count (filter pos? (mapv bit-xor x y))))
 
 (defn inverse [x]
-  (vec (replace {1 0 0 1} x)))
+  (hv. (vec (replace {1 0 0 1} x)) (.name x)))
+(def ¬ inverse)
 
 (defn similar
   ([x xs] (similar x xs first))
@@ -49,19 +66,18 @@
        (similar x cleanup-memory last))))
 
 (defn merge-name [xs]
-  (or (apply merge-with #(symbol (str %1 "-" %2)) (map meta xs)) {}))
+  (s/join "-" (map #(.name %) xs)))
 
 (defn bind [x y]
-  (with-meta (mapv bit-xor x y) (merge-name [x y])))
+  (hv. (mapv bit-xor x y) (merge-name [x y])))
+(def ⊗ bind)
 
 (defn unbind [x y]
   (cleanup (bind x y)))
 
-(defn unbind-symbol [x y]
-  (-> (unbind x y) meta :name))
-
 (defn interpret [x y]
-  (bind (inverse x) y))
+  (bind (¬ x) y))
+(def ¬⊗ interpret)
 
 (defn bundle [& xs]
   (let [c (/ (count xs) 2)
@@ -71,7 +87,8 @@
                             (> c %) 1
                             :else (rand-int 2)))
                vec)]
-    (with-meta v (merge-name xs))))
+    (hv. v (merge-name xs))))
+(def ++ bundle)
 
 (defn hypervector-map [m]
   (apply bundle (map #(apply bind %) m)))
@@ -80,10 +97,9 @@
   ([name]
      `(defhv ~name (hypervector)))
   ([name init]
-     `(def ~name (let [x# (with-meta ~(w/postwalk #(if (map? %)
-                                                     (list 'hypervector-map %)
-                                                     %) init)
-                            {:name '~name})]
+     `(def ~name (let [x# (hv. ~(w/postwalk #(if (map? %)
+                                               (list 'hypervector-map %)
+                                               %) init) '~name)]
                    (swap! cleanup-memory conj x#)
                    x#))))
 
@@ -105,30 +121,31 @@
 (defhv latin-america)
 (defhv peso)
 
-(assert (= stockholm (unbind (bind capital stockholm) capital)))
+(assert (= stockholm ((⊗ capital stockholm) capital)))
 
 (defhv france {capital paris geographical-location western-europe currency euro})
-(assert (= paris (unbind capital france)))
-(assert (= capital (unbind paris france)))
+(assert (= paris (france capital)))
+(assert (= capital (paris france)))
 
 (defhv sweden {capital stockholm geographical-location scandinavia currency krona})
-(assert (= stockholm (unbind (unbind paris france) sweden)))
+(assert (= stockholm (-> paris france sweden)))
 
-(defhv m {paris stockholm western-europe scandinavia euro krona})
-(assert (= sweden (unbind france m)))
-(assert (= stockholm (unbind paris m)))
-(assert (= western-europe (unbind scandinavia m)))
+(defhv holistic-mapping {paris stockholm western-europe scandinavia euro krona})
+(assert (= sweden (holistic-mapping france)))
+(assert (= stockholm (holistic-mapping paris)))
+(assert (= western-europe (scandinavia holistic-mapping)))
 
-(defhv france-to-sweden (interpret france sweden))
-(assert (= krona (unbind france-to-sweden euro)))
-(assert (= paris (unbind france-to-sweden stockholm)))
+(assert (= krona (-> france sweden euro)))
+(defhv france-to-sweden (¬⊗ france sweden))
+(assert (= krona (france-to-sweden euro)))
+(assert (= paris (france-to-sweden stockholm)))
 
 (defhv mexico {capital mexico-city geographical-location latin-america currency peso})
-(assert (= currency (unbind mexico peso)))
+(assert (= currency (mexico peso)))
 
-(defhv mexico-to-france (interpret (interpret mexico sweden) france-to-sweden))
-(assert (= euro (unbind mexico-to-france peso)))
-(assert (= mexico-city (unbind mexico-to-france paris)))
+(defhv mexico-to-france (¬⊗ (¬⊗ mexico sweden) france-to-sweden))
+(assert (= euro (mexico-to-france peso)))
+(assert (= mexico-city (mexico-to-france paris)))
 
 (defhv mother)
 (defhv father)
@@ -143,24 +160,24 @@
 (defhv mother-of {mother x child y})
 (defhv father-of {father y child z})
 
-(defhv grandmother-of (interpret {grandmother x grandchild z} (bundle mother-of father-of)))
+(defhv grandmother-of (¬⊗ {grandmother x grandchild z} (++ mother-of father-of)))
 
 (defhv anna)
 (defhv bill)
 (defhv cid)
 
 (defhv anna-is-the-mother-of-bill {mother anna child bill})
-(assert (= anna (unbind anna-is-the-mother-of-bill mother)))
-(assert (= bill (unbind anna-is-the-mother-of-bill child)))
+(assert (= anna (anna-is-the-mother-of-bill mother)))
+(assert (= bill (anna-is-the-mother-of-bill child)))
 
-(assert (= anna (unbind x (interpret mother-of anna-is-the-mother-of-bill))))
-(assert (= bill (unbind y (interpret mother-of anna-is-the-mother-of-bill))))
+(assert (= anna (x (¬⊗ mother-of anna-is-the-mother-of-bill))))
+(assert (= bill (y (¬⊗ mother-of anna-is-the-mother-of-bill))))
 
 (defhv bill-is-the-father-of-cid {father bill child cid})
-(assert (= father (unbind bill-is-the-father-of-cid bill)))
-(assert (= child (unbind bill-is-the-father-of-cid cid)))
+(assert (= father (bill-is-the-father-of-cid bill)))
+(assert (= child (bill-is-the-father-of-cid cid)))
 
 ;; This is unstable
-(defhv anna-is-the-grandmother-of-cid (interpret grandmother-of (bundle {mother anna child bill} {father bill child cid})))
-(assert (= grandmother (unbind anna-is-the-grandmother-of-cid anna)))
-(assert (= grandchild (unbind anna-is-the-grandmother-of-cid cid)))
+(defhv anna-is-the-grandmother-of-cid (¬⊗ grandmother-of (++ {mother anna child bill} {father bill child cid})))
+(assert (= grandmother (anna-is-the-grandmother-of-cid anna)))
+(assert (= grandchild (anna-is-the-grandmother-of-cid cid)))
