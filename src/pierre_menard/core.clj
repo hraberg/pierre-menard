@@ -33,7 +33,7 @@
   ([x xs] (similar x xs first))
   ([x xs which]
      (let [hd (group-by (partial hamming-distance x) xs)]
-       (which (hd (last (sort (keys hd))))))))
+       (first (hd (which (sort (keys hd))))))))
 
 (defn cleanup
   ([x] (cleanup x @cleanup-memory))
