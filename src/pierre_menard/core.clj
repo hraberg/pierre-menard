@@ -28,7 +28,6 @@
   (invoke [this key] (unbind this key))
   ILookup
   (valAt [this key] (unbind vector key))
-  (valAt [this key not-found] (or (unbind vector key) not-found))
   Object
   (toString [this] (str name ": " (binary (take 20 vector))  " ... " (binary (take-last 20 vector))))
   (equals [this o] (= vector (.vector o)))
@@ -48,22 +47,20 @@
   (count (filter pos? (mapv bit-xor x y))))
 
 (defn inverse [x]
-  (hv. (vec (replace {1 0 0 1} x)) (.name x)))
+  (hv. (mapv #(bit-and 1 (bit-not %)) x) (.name x)))
 (def ¬ inverse)
 
-(defn similar
-  ([x xs] (similar x xs first))
-  ([x xs which]
-     (let [hd (group-by (partial hamming-distance x) xs)]
-       (first (hd (which (sort (keys hd))))))))
+(defn similar [x xs]
+  (let [hd (group-by (partial hamming-distance x) xs)]
+    (first (hd (first (sort (keys hd)))))))
 
 (defn cleanup
   ([x] (cleanup x @cleanup-memory))
   ([x cleanup-memory]
-     ;; Why is last needed/working here?
      (if-let [exact (cleanup-memory x)]
        exact
-       (similar x cleanup-memory last))))
+       ;; Why is inverse needed/working here?
+       (similar (inverse x) cleanup-memory))))
 
 (defn merge-name [xs]
   (s/join "-" (map #(.name %) xs)))
