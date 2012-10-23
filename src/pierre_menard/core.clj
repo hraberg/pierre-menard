@@ -1,5 +1,9 @@
 (ns pierre-menard.core)
 
+;; This implements most of:
+;; What We Mean When We Say “What’s the Dollar of Mexico?”: Prototypes and Mapping in Concept Space
+;; Pentti Kanerva, 2010
+
 (def ^:dynamic *dimensions* 10000)
 (def ^:dynamic *density* 0.5)
 
@@ -7,16 +11,14 @@
 (def cleanup-memory (atom #{}))
 
 (defn bsc []
-  (let [x (loop [x (vec (repeat *dimensions* 0))
-                 ones (int (* *dimensions* *density*))]
-            (if (zero? ones)
-              x
-              (let [r (rand-int *dimensions*)]
-                (if (zero? (x r))
-                  (recur (assoc x r 1) (dec ones))
-                  (recur x ones)))))]
-    (swap! cleanup-memory conj x)
-    x))
+  (loop [x (vec (repeat *dimensions* 0))
+         ones (int (* *dimensions* *density*))]
+    (if (zero? ones)
+      x
+      (let [r (rand-int *dimensions*)]
+        (if (zero? (x r))
+          (recur (assoc x r 1) (dec ones))
+          (recur x ones))))))
 
 (defn binary [x] (apply str x))
 
@@ -36,73 +38,88 @@
   ([x] (cleanup x @cleanup-memory))
   ([x cleanup-memory]
      ;; Why is last needed/working here?
-     (similar x cleanup-memory last)))
+     (if-let [exact (cleanup-memory x)]
+       exact
+       (similar x cleanup-memory last))))
+
+(defn merge-name [xs]
+  (or (apply merge-with #(symbol (str %1 "-" %2)) (map meta xs)) {}))
 
 (defn bind [x y]
-  (let [v (mapv bit-xor x y)]
-    (swap! cleanup-memory conj v)
-    v))
+  (with-meta (mapv bit-xor x y) (merge-name [x y])))
 
 (defn unbind [x y]
   (cleanup (bind x y)))
 
+(defn unbind-symbol [x y]
+  (-> (unbind x y) meta :name))
+
 (defn interpret [x y]
   (bind (inverse x) y))
 
-(defn bundle [x y & zs]
-  (let [vs (concat [x y] zs)
-        c (/ (count vs) 2)
-        v (->> vs
-               (apply map +)
-               (map #(cond (< c %) 0
-                           (> c %) 1
-                           :else (rand-int 2)))
+(defn bundle [& xs]
+  (let [c (/ (count xs) 2)
+        v (->> xs
+               (apply mapv +)
+               (mapv #(cond (< c %) 0
+                            (> c %) 1
+                            :else (rand-int 2)))
                vec)]
-    (swap! cleanup-memory conj v)
-    v))
+    (with-meta v (merge-name xs))))
 
 (defn bsc-map [m]
   (apply bundle (map #(apply bind %) m)))
 
-;; examples
+(defmacro defb
+  ([name]
+     `(defb ~name (bsc)))
+  ([name init]
+     `(def ~name (let [x# (with-meta ~(if (map? init)
+                                        (list 'bsc-map init)
+                                        init)
+                            {:name '~name})]
+                   (swap! cleanup-memory conj x#)
+                   x#))))
 
-(def capital (bsc))
-(def geographical-location (bsc))
-(def currency (bsc))
+;; Examples
 
-(def paris (bsc))
-(def western-europe (bsc))
-(def euro (bsc))
+(defb capital)
+(defb geographical-location)
+(defb currency)
 
-(def stockholm (bsc))
-(def scandinavia (bsc))
-(def krona (bsc))
+(defb paris)
+(defb western-europe)
+(defb euro)
 
-(def mexico-city (bsc))
-(def latin-america (bsc))
-(def peso (bsc))
+(defb stockholm)
+(defb scandinavia)
+(defb krona)
 
-(assert (= (unbind (bind capital stockholm) capital)))
+(defb mexico-city)
+(defb latin-america)
+(defb peso)
 
-(def france (bsc-map {capital paris geographical-location western-europe currency euro}))
+(assert (= stockholm (unbind (bind capital stockholm) capital)))
+
+(defb france {capital paris geographical-location western-europe currency euro})
 (assert (= paris (unbind capital france)))
 (assert (= capital (unbind paris france)))
 
-(def sweden (bsc-map {capital stockholm geographical-location scandinavia currency krona}))
+(defb sweden {capital stockholm geographical-location scandinavia currency krona})
 (assert (= stockholm (unbind (unbind paris france) sweden)))
 
-(def m (bsc-map {paris stockholm western-europe scandinavia euro krona}))
+(defb m {paris stockholm western-europe scandinavia euro krona})
 (assert (= sweden (unbind france m)))
 (assert (= stockholm (unbind paris m)))
 (assert (= western-europe (unbind scandinavia m)))
 
-(def france-to-sweden (interpret france sweden))
+(defb france-to-sweden (interpret france sweden))
 (assert (= krona (unbind france-to-sweden euro)))
 (assert (= paris (unbind france-to-sweden stockholm)))
 
-(def mexico (bsc-map {capital mexico-city geographical-location latin-america currency peso}))
+(defb mexico {capital mexico-city geographical-location latin-america currency peso})
 (assert (= currency (unbind mexico peso)))
 
-(def mexico-to-france (interpret (interpret mexico sweden) france-to-sweden))
+(defb mexico-to-france (interpret (interpret mexico sweden) france-to-sweden))
 (assert (= euro (unbind mexico-to-france peso)))
 (assert (= mexico-city (unbind mexico-to-france paris)))
