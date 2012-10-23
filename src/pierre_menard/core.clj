@@ -1,7 +1,4 @@
-(ns pierre-menard.core
-  (:require [clojure.string :as s])
-  (:import [java.math BigInteger]
-           [java.util Random]))
+(ns pierre-menard.core)
 
 (def ^:dynamic *dimensions* 10000)
 (def ^:dynamic *density* 0.5)
