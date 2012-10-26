@@ -28,6 +28,8 @@ And "what about Deuce?" - I will keep working on Deuce, it is a totally differen
 
 [Sparse Distributed Memory: Principles and Operation](ftp://reports.stanford.edu/pub/cstr/reports/csl/tr/89/400/CSL-TR-89-400.pdf) Pentti Kanerva et al, 1989
 
+[Simple principles of cognitive computation with distributed representations](http://pure.ltu.se/portal/files/36779244/Blerim_Emruli_Kappa_Lic2012.pdf) Blerim Emruli, 2012
+
 [Integer Sparse Distributed Memory and Modular Composite Representation](http://ccrg.cs.memphis.edu/assets/papers/theses-dissertations/Snaider_dissertation.pdf) Javier Snaider, 2012
 
 [Comparison Between Kanerva's SDM and Hopfield-Type Neural Networks](http://www.google.co.uk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&ved=0CCYQFjAB&url=http%3A%2F%2Fcsjarchive.cogsci.rpi.edu%2F1988v12%2Fi03%2Fp0299p0329%2Fmain.pdf&ei=TymFUJncLKW80QWDzICIBA&usg=AFQjCNH8UomRBwA1XWYwT0OpmkK42lsWlQ) James Keeler, 1988

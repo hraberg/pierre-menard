@@ -15,24 +15,25 @@
 (def ^:dynamic *dimensions* 10000)
 (def ^:dynamic *density* 0.5)
 
-;; This should be an auto assocative memory like SDR
+;; This should probably be a proper auto assocative memory like SDR
 (def cleanup-memory (atom #{}))
 
 (defn binary [x] (apply str x))
 (declare unbind)
 
-(deftype hv [vector name]
+(deftype hvec [vector name]
   Seqable
   (seq [this] (seq vector))
   IFn
   (invoke [this key] (unbind this key))
   ILookup
-  (valAt [this key] (unbind vector key))
+  (valAt [this key] (this key))
   Object
   (toString [this] (str name ": " (binary (take 20 vector))  " ... " (binary (take-last 20 vector))))
-  (equals [this o] (= vector (.vector o)))
+  (equals [this o] (and (instance? hvec o) (= vector (.vector o))))
   (hashCode [this] (.hashCode vector)))
 
+;; Obviously extremely space (and time) inefficient way using one long per bit.
 (defn hypervector []
   (loop [x (vec (repeat *dimensions* 0))
          ones (int (* *dimensions* *density*))]
@@ -43,30 +44,44 @@
           (recur (assoc x r 1) (dec ones))
           (recur x ones))))))
 
+(defn create-hv [name]
+  (let [v (hvec. (hypervector) name)]
+    (swap! cleanup-memory conj v)
+    v))
+(alter-var-root #'create-hv memoize)
+
+(defmacro hv [name]
+  `(create-hv '~name))
+
 (defn hamming-distance [x y]
   (count (filter pos? (mapv bit-xor x y))))
 
 (defn inverse [x]
-  (hv. (mapv #(bit-and 1 (bit-not %)) x) (.name x)))
+  (hvec. (mapv #(bit-and 1 (bit-not %)) x) (.name x)))
 (def ¬ inverse)
 
 (defn similar [x xs]
   (let [hd (group-by (partial hamming-distance x) xs)]
     (first (hd (first (sort (keys hd)))))))
 
+(defn by-similarity
+  ([x] (by-similarity x @cleanup-memory))
+  ([x xs]
+     (let [hd (group-by (partial hamming-distance x) xs)]
+       (map #(vec [(-> % hd first) %]) (sort (keys hd))))))
+
 (defn cleanup
   ([x] (cleanup x @cleanup-memory))
   ([x cleanup-memory]
      (if-let [exact (cleanup-memory x)]
        exact
-       ;; Why is inverse needed/working here?
        (similar (inverse x) cleanup-memory))))
 
 (defn merge-name [xs]
   (s/join "-" (map #(.name %) xs)))
 
 (defn bind [x y]
-  (hv. (mapv bit-xor x y) (merge-name [x y])))
+  (hvec. (mapv bit-xor x y) (merge-name [x y])))
 (def ⊗ bind)
 
 (defn unbind [x y]
@@ -76,7 +91,7 @@
   (bind (¬ x) y))
 (def ¬⊗ interpret)
 
-(defn bundle [& xs]
+(defn group [& xs]
   (let [c (/ (count xs) 2)
         v (->> xs
                (apply mapv +)
@@ -84,19 +99,20 @@
                             (> c %) 1
                             :else (rand-int 2)))
                vec)]
-    (hv. v (merge-name xs))))
-(def ++ bundle)
+    (hvec. v (merge-name xs))))
+(def ++ group)
 
 (defn hypervector-map [m]
-  (apply bundle (map #(apply bind %) m)))
+  (apply group (map #(apply bind %) m)))
 
 (defmacro defhv
   ([name]
      `(defhv ~name (hypervector)))
   ([name init]
-     `(def ~name (let [x# (hv. ~(w/postwalk #(if (map? %)
-                                               (list 'hypervector-map %)
-                                               %) init) '~name)]
+     `(def ~name (let [x# (hvec. ~(w/postwalk #(cond
+                                                 (map? %) (list 'hypervector-map %)
+                                                 (and (symbol? %) (.startsWith (clojure.core/name %) "?")) (list 'hv %)
+                                                 :else %) init) '~name)]
                    (swap! cleanup-memory conj x#)
                    x#))))
 
@@ -157,7 +173,7 @@
 (defhv mother-of {mother x child y})
 (defhv father-of {father y child z})
 
-(defhv grandmother-of (¬⊗ {grandmother x grandchild z} (++ mother-of father-of)))
+(defhv grandmother-of (⊗ {grandmother x grandchild z} (++ mother-of father-of)))
 
 (defhv anna)
 (defhv bill)
@@ -175,6 +191,12 @@
 (assert (= child (bill-is-the-father-of-cid cid)))
 
 ;; This is unstable
-(defhv anna-is-the-grandmother-of-cid (¬⊗ grandmother-of (++ {mother anna child bill} {father bill child cid})))
+(defhv anna-is-the-grandmother-of-cid (⊗ grandmother-of (++ {mother anna child bill} {father bill child cid})))
 (assert (= grandmother (anna-is-the-grandmother-of-cid anna)))
+(println (by-similarity cid))
+(println (by-similarity grandchild))
+(println (by-similarity anna-is-the-grandmother-of-cid))
+(println (anna-is-the-grandmother-of-cid cid))
+(println (by-similarity (bind anna-is-the-grandmother-of-cid cid)))
+(println (count (by-similarity (bind anna-is-the-grandmother-of-cid cid))) (count @cleanup-memory))
 (assert (= grandchild (anna-is-the-grandmother-of-cid cid)))
