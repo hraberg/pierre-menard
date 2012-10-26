@@ -195,10 +195,4 @@
 ;; This is unstable
 (defhv anna-is-the-grandmother-of-cid (⊗ grandmother-of (++ {mother anna child bill} {father bill child cid})))
 (assert (= grandmother (anna-is-the-grandmother-of-cid anna)))
-(println (by-similarity cid))
-(println (by-similarity grandchild))
-(println (by-similarity anna-is-the-grandmother-of-cid))
-(println (anna-is-the-grandmother-of-cid cid))
-(println (by-similarity (bind anna-is-the-grandmother-of-cid cid)))
-(println (count (by-similarity (bind anna-is-the-grandmother-of-cid cid))) (count @cleanup-memory))
 (assert (= grandchild (anna-is-the-grandmother-of-cid cid)))
