@@ -1,7 +1,8 @@
 # Pierre Menard
 
 *There is no exercise of the intellect which is not, in the final analysis, useless.*
-  -- "Pierre Menard, Author of the Quixote", Jorge Luis Borges
+
+-- "Pierre Menard, Author of the Quixote", Jorge Luis Borges
 
 
 Pierre Menard started as an attempt to implement Hierarchical Temporal Memory Cortical Learning Algorithms, as described in the [Numenta](http://www.numenta.com/) [whitepaper](https://www.numenta.com/htm-overview/education/HTM_CorticalLearningAlgorithms.pdf) (Version 0.2.1, September 12, 2011) in Clojure after seeing Jeff Hawkins speak at [Strange Loop 2012](http://www.infoq.com/presentations/Brain-Computing).
@@ -10,13 +11,17 @@ Now, this isn't what Pierre Menard is. Instead I've been spending a few weeks re
 
 So I needed some new inspiration, and Jeff Hawkins' keynote did set me down this road, which initially was pretty humble, just trying to understand the pseudo code in the Numenta whitepaper, but I realized I needed a better, both technical and critical, understanding of the different pieces here.
 
-There are many interesting papers and thoughts out there, but they take time to analyze and consolidate into a working model of software. One key is to program and compose emergent behavior - I don't know exactly how to describe what I mean here, but we'll know it when we see it. Another key is to get the computer to help us on the way - to explain what its doing and why, and suggest alternatives. These two aren't necessarily dependent on each other. A third key is potentially continental philosophy - this is not so much to provide answers, but to help detect shortcuts - both to take and avoid. As a side note - many papers talk about AI - while I still think "programming", and I'm not sure if that's because I have a too broad or optimistic view of what programming is or can be, a misappropriation of AI and machine learning (this is very likely), or if it can be attributed to arbitrary delinations between the different kinds of "computing". I'm mainly interested in efficiently make the computer do what I want, and most of the work, instead of the other way around.
+There are many interesting papers and thoughts out there, but they take time to analyze and consolidate into a working model of software. One key is to program and compose emergent behavior - I don't know exactly how to describe what I mean here, but we'll know it when we see it. Another key is to get the computer to help us on the way - to explain what its doing and why, and suggest alternatives. These two aren't necessarily dependent on each other. A third key is potentially continental philosophy - this is not so much to provide answers, but to help detect shortcuts - both to take and avoid.
+
+As a side note - many papers talk about AI - while I still think "programming", and I'm not sure if that's because I have a too broad or optimistic view of what programming is or can be, a misappropriation of AI and machine learning (this is very likely), or if it can be attributed to arbitrary delinations between the different kinds of "computing". I'm mainly interested in efficiently make the computer do what I want, and most of the work, instead of the other way around.
 
 And I'm finally starting to see overlap between the references in De Landa "Philosophy and Simulation" (2011) and papers I currently read, but arrived to at from a different angle. There's a pattern here somewhere, and, to paraphrase Jeff: "I have a feeling its going to be important". Potentially what is needed is a book describing the ideas and findings - again, taking cue from Jeff - "On Intelligence" (2004) is a book that calls for of action, not one that has all the answers.
 
 Pierre Menard is a scratch pad, its nothing really, and it is where it eventually will happen. It's not a new rule engine, language or an IDE, its a creation of a concept, similar to what was and is, but also, what is yet to be. More concretely, I aim to explore an intersection of ideas around sparse distributed representation, hyper-dimensional computing, fluid analogies, quantum neural networks, cortical learning, production systems and functional logic programming applied to human style problem solving.
 
 And "what about Deuce?" - I will keep working on Deuce, it is a totally different form of programming, it needs a different type of problem solving, more engineering and heavy lifting, and less theoretical thinking. I plan to work on both Pierre Menard and Deuce for at least 2013.
+
+And "what about Deleuze?" - that's what I wanna know!
 
 
 
