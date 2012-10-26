@@ -67,6 +67,10 @@ And "what about Deleuze?" - that's what I wanna know!
 
 [Philosophy and Simulation: The Emergence of Synthetic Reason](http://computationalculture.net/review/the-plane-of-obscurity-%E2%80%94-simulation-and-philosophy) Manuel De Landa, 2011
 
+[Deleuze and Computers](http://www.youtube.com/watch?v=fBZPJNoJWHk) Alexander R. Galloway, 2011
+
+[Manuel De Landa - The Philosophy of Gilles Deleuze](http://www.youtube.com/watch?v=zqisvKSuA70) Manuel De Landa, 2007
+
 [Metafor: Visualising Stories as Code](http://web.media.mit.edu/~hugo/publications/drafts/IUI2005-metafor.4.pdf) Hugo Liu and Henery Lieberman, 2005
 
 [Natural Language, Semantic Analysis and Interactive Fiction](http://inform7.com/learn/documents/WhitePaper.pdf) Graham Nelson, 2005, revised 2006
