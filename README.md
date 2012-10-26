@@ -79,6 +79,8 @@ And "what about Deleuze?" - that's what I wanna know!
 
 [Pierre Menard, Author of the Quixote](http://vahidnab.com/menard.pdf) Jorge Luis Borges, 1939
 
+[The Sokal Affair](http://en.wikipedia.org/wiki/Sokal_affair) Wikipedia, regarding the github description joke.
+
 
 ## License
 
