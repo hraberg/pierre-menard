@@ -11,6 +11,8 @@
 ;; Hyperdimensional Computing: An Introduction to Computing in Distributed Representation with High-Dimensional Random Vectors
 ;; Pentti Kanerva, 2009
 
+;; Note: This code is simply to explore the concepts, its not to be seen as anything else.
+
 
 (def ^:dynamic *dimensions* 10000)
 (def ^:dynamic *density* 0.5)
