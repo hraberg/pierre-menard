@@ -53,7 +53,7 @@ And "what about Deleuze?" - that's what I wanna know!
 
 [The emergence of choice: Decision-making and strategic thinking through analogies](http://cogprints.org/6615/2/Capyblanca_cogprints.pdf) Alexandre Linhares, 2009
 
-<a href="http://www.eicstes.org/EICSTES_PDF/PAPERS/The%20Self-Organizing%20Map%20(Kohonen).pdf">The Self-Organizing Map> Teuvo Kohonen, 1990
+<a href="http://www.eicstes.org/EICSTES_PDF/PAPERS/The%20Self-Organizing%20Map%20(Kohonen).pdf">The Self-Organizing Map</a> Teuvo Kohonen, 1990
 
 [Beyond Containing: Associative Storage and Memory](http://theputnamprogram.wordpress.com/2012/02/14/associative-storage-and-memory/) The "Putnam Program", 2012 - This is an interesting blog, has loads of pretty dense stuff on the future of computing, AI, Machine Learning, Architecture and Philosophy - including continental stuff like Deleuze and Foucault.
 
